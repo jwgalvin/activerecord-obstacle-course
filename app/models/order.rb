@@ -4,6 +4,25 @@ class Order < ApplicationRecord
   has_many :order_items
   has_many :items, through: :order_items
 
+
+  def self.find_user_3(id)
+    #inding.pry
+    where(user_id: id )
+  end
+
+  def self.sort_order_expensive
+    order(amount: :DESC)
+  end
+
+  def self.sort_order_least_expensive
+    order(amount: :ASC)
+  end
+
+  def sort_name_items
+    items.order(name: :ASC)
+  end
+
+
   def self.search_500
     where(amount: 500)
   end
@@ -43,5 +62,9 @@ class Order < ApplicationRecord
 
   def self.less_550
     where("amount < ?", 550)
+  end
+
+  def self.find_names
+     Order.joins(:items).pluck(:name)
   end
 end
