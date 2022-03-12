@@ -22,4 +22,11 @@ class Item < ApplicationRecord
 
    Item.where.not(id: ids)
  end
+
+ def self.find_user_by_item_ordered(item_id)
+   binding.pry
+   .joins(:orders)
+   .where(id: item_id)
+
+ end
 end
