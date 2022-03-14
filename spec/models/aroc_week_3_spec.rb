@@ -24,7 +24,7 @@ describe 'ActiveRecord Obstacle Course, Week 3' do
       # where order_items.item_id=#{@item_8.id}
       # ORDER BY users.name")
     #users = users.map {|u| u['name']}
-    # ------------------------------------------------------------
+    
 
     # ------------------ Using ActiveRecord ----------------------
   users = Item.find_user_by_item_ordered(@item_8.id)
